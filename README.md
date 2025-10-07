@@ -1,8 +1,7 @@
-📖 Overview
-
-This is a modern React-based web application built with React, Tailwind CSS, and
-React Router. It includes dynamic features such as sorting, searching, local
-storage handling, and responsive design for a seamless user experience.
+📖 Overview ![alt text](image.png) This is a modern React-based web application
+built with React, Tailwind CSS, and React Router. It includes dynamic features
+such as sorting, searching, local storage handling, and responsive design for a
+seamless user experience.
 
 🚀 Features
 
