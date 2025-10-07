@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 import Card from '../../components/Card';
 import { useDatas } from '../../Hooks/useDatas';
 import { RiSearchLine } from 'react-icons/ri';
+import Loader from '../../components/Loader';
 
 const Apps = () => {
-  const [datas] = useDatas();
-
+  const { datas, loading } = useDatas();
   const [search, setSearch] = useState('');
-
   const userInput = search.trim().toLowerCase();
 
   const filterdItems = datas.filter(item =>
     item.title.toLowerCase().includes(userInput)
   );
 
-  if (!filterdItems) return <p>App mo foud</p>;
   return (
     <div className="bg-neutral-100 min-h-screen py-10 lg:py-20">
       <div className="w-full lg:w-10/12 mx-auto px-5">
@@ -43,15 +41,17 @@ const Apps = () => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-10">
-          {/* Cards */}
-
-          {filterdItems.length > 0 ? (
-            filterdItems.map(item => <Card item={item} key={item.id} />)
-          ) : (
-            <p className="text-3xl font-bold ">No App Found</p>
-          )}
-        </div>
+        {loading ? (
+          <Loader />
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 my-10">
+            {filterdItems.length > 0 ? (
+              filterdItems.map(item => <Card item={item} key={item.id} />)
+            ) : (
+              <p className="text-3xl font-bold ">No App Found</p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

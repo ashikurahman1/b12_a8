@@ -1,4 +1,3 @@
-import React from 'react';
 import Star from '../assets/icon-ratings.png';
 import Download from '../assets/icon-downloads.png';
 import { Link } from 'react-router';

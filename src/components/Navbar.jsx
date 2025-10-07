@@ -59,7 +59,11 @@ const Navbar = () => {
             {/* Mobile Menu */}
             <div className="">
               {isOpen && (
-                <div className="absolute lg:hidden top-20 left-0 bg-purple-50/90 px-20 py-10 rounded shadow">
+                <div
+                  className={`absolute lg:hidden  bg-purple-100 px-20 py-10 rounded shadow transition duration-300 -top-100 ${
+                    isOpen ? 'top-20 left-0' : ''
+                  }`}
+                >
                   <ul className="space-y-5">{menuItem}</ul>
                 </div>
               )}

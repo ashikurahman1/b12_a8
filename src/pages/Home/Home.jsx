@@ -5,12 +5,13 @@ import { useDatas } from '../../Hooks/useDatas';
 import Card from '../../components/Card';
 import { Link } from 'react-router';
 
-const Home = () => {
-  const [datas] = useDatas();
-  console.log(datas);
+import Loader from '../../components/Loader';
 
+const Home = () => {
+  const { datas, loading } = useDatas();
   const trandingApps = datas.slice(0, 8);
 
+  if (loading) return <Loader />;
   return (
     <div>
       <Hero />
