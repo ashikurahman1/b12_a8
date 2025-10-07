@@ -5,3 +5,10 @@
 * {
   font-family: 'Inter', sans-serif;
 }
+.active {
+  background-image: linear-gradient(to left, #6b35e5, #9358ef);
+  color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  border-bottom: 2px solid #9358ef;
+}
