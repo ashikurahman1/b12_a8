@@ -21,7 +21,6 @@ const menuLink = [
     name: 'Installation',
   },
 ];
-console.log(Link);
 
 const menuItem = menuLink.map(item => (
   <li key={item.id} className="font-semibold">
@@ -60,7 +59,7 @@ const Navbar = () => {
             {/* Mobile Menu */}
             <div className="">
               {isOpen && (
-                <div className="absolute lg:hidden top-20 left-0 bg-purple-50 px-20 py-10 rounded shadow">
+                <div className="absolute lg:hidden top-20 left-0 bg-purple-50/90 px-20 py-10 rounded shadow">
                   <ul className="space-y-5">{menuItem}</ul>
                 </div>
               )}
