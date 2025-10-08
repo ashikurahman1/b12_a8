@@ -1,4 +1,8 @@
 {
+  "rewrites": {
+    "source": "/(.*)",
+    "destination": "/"
+  },
   "name": "b12_a8",
   "private": true,
   "version": "0.0.0",
