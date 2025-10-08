@@ -6,12 +6,13 @@ import Card from '../../components/Card';
 import { Link } from 'react-router';
 
 import Loader from '../../components/Loader';
+import SkeletonLoader from '../../components/SkeletonLoader';
 
 const Home = () => {
   const { datas, loading } = useDatas();
   const trandingApps = datas.slice(0, 8);
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
   return (
     <div>
       <Hero />
@@ -24,12 +25,17 @@ const Home = () => {
               Explore All Trending Apps on the Market developed by us
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-10">
-            {/* Cards */}
-            {trandingApps.map(item => (
-              <Card item={item} key={item.id} />
-            ))}
-          </div>
+
+          {loading ? (
+            <SkeletonLoader />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-10">
+              {trandingApps.map(item => (
+                <Card item={item} key={item.id} />
+              ))}
+            </div>
+          )}
+
           <div className="flex justify-center ">
             <Link to="/apps">
               <button

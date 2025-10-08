@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useDatas } from '../../Hooks/useDatas';
 
@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import Charts from '../../components/Charts';
 import Loader from '../../components/Loader';
 import NotFound from '../../components/NotFound';
+import SkeletonLoader from '../../components/SkeletonLoader';
 
 const Details = () => {
   const [installed, setInstalled] = useState(false);
@@ -17,26 +18,32 @@ const Details = () => {
 
   const filteredDatas = datas.find(item => item.id === Number(id));
 
-  if (loading) {
-    return <Loader />;
-  }
-  if (!filteredDatas && !loading) {
-    return <NotFound />;
-  }
+  useEffect(() => {
+    const installedApps =
+      JSON.parse(localStorage.getItem('installedApp')) || [];
+    const alreadyInstalled = installedApps.some(app => app.id === Number(id));
+    if (alreadyInstalled) {
+      setInstalled(true);
+    }
+  }, [id]);
+
+  if (loading) return <Loader />;
+
+  if (!filteredDatas && !loading) return <NotFound />;
 
   const handleInstall = item => {
     const installedApps =
       JSON.parse(localStorage.getItem('installedApp')) || [];
 
     const alreadyInstalled = installedApps.some(app => app.id === item.id);
+
     if (alreadyInstalled) {
+      toast.info('App already installed');
       setInstalled(true);
       return;
     }
     installedApps.push(item);
-
     localStorage.setItem('installedApp', JSON.stringify(installedApps));
-
     toast.success('App installed successfully');
     setInstalled(true);
   };

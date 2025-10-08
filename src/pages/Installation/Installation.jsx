@@ -20,9 +20,9 @@ const Installation = () => {
 
   const sortBySize = (() => {
     if (sortOrder === 'high-low') {
-      return [...installedApps].sort((a, b) => b.size - a.size);
+      return [...installedApps].sort((a, b) => b.downloads - a.downloads);
     } else if (sortOrder === 'low-high') {
-      return [...installedApps].sort((a, b) => a.size - b.size);
+      return [...installedApps].sort((a, b) => a.downloads - b.downloads);
     } else {
       return installedApps;
     }
@@ -77,7 +77,7 @@ const Installation = () => {
                         alt="Download Icon"
                         className="w-4 h-4"
                       />
-                      <span>{item.downloads.toString().slice(0, 2)}M</span>
+                      <span>{item.downloads}M</span>
                     </div>
                     <div className="flex items-center gap-2 text-orange-500">
                       <img

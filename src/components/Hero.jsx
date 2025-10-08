@@ -10,8 +10,8 @@ const Hero = () => {
       {/* // Top Hero */}
       <div className="bg-neutral-100 pt-15 px-5">
         <div className=" space-y-6 w-full mx-auto lg:w-8/12 flex flex-col items-center ">
-          <h1 className="text-sky-950 text-5xl lg:text-7xl font-bold  leading-tight w-full lg:w-1/2 px-5  lg:text-center">
-            We Build {''}
+          <h1 className="text-sky-950 text-5xl lg:text-7xl font-bold  leading-tight   px-5  lg:text-center">
+            We Build {''} <br />
             <span
               className="text-transparent bg-clip-text"
               style={{
@@ -25,7 +25,7 @@ const Hero = () => {
             {''}
             Apps
           </h1>
-          <p className="text-slate-500 w-full lg:w-8/12 text-lg tracking-wide lg:text-center">
+          <p className="text-slate-500 w-full lg:w-8/12 px-5 text-[16px] lg:text-lg tracking-wide lg:text-center">
             At HERO.IO, we craft innovative apps designed to make everyday life
             simpler, smarter, and more exciting. Our goal is to turn your ideas
             into digital experiences that truly make an impact.

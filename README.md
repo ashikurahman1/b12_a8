@@ -9,3 +9,7 @@ seamless user experience.
 filtering ✅ LocalStorage-based data persistence ✅ Custom hooks for data
 fetching (useDatas) ✅ Loading states and error handling ✅ Toast notifications
 for actions ✅ Recharts-based data visualization
+
+<!--  -->
+
+when refresh button is again enabled when search the loader not showing
