@@ -6,7 +6,7 @@ const NotFound = () => {
     <div className="min-h-screen py-30 flex flex-col items-center bg-neutral-100 space-y-5">
       <img src={NotFoundImg} alt="Error Image" />
       <h2 className="text-5xl font-semibold text-slate-900">
-        Oops, Apps not found!
+        Oops!! Apps not found!
       </h2>
       <p className="text-[20px] text-slate-500">
         The page you are looking for is not available.

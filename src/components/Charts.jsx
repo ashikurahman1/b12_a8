@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-  ResponsiveContainer,
-  ComposedChart,
   Bar,
+  BarChart,
+  CartesianGrid,
+  ResponsiveContainer,
   XAxis,
   YAxis,
-  Tooltip,
-  Legend,
 } from 'recharts';
 
 const Charts = ({ ratings }) => {
@@ -14,23 +13,21 @@ const Charts = ({ ratings }) => {
 
   return (
     <div className="my-5">
-      <ResponsiveContainer width="100%" height={600}>
-        <ComposedChart
-          layout="vertical"
+      <ResponsiveContainer width="100%" height={500}>
+        <BarChart
           data={data}
+          layout="vertical"
           margin={{
-            top: 10,
-            right: 10,
-            bottom: 10,
-            left: 10,
+            top: 5,
+            right: 30,
+
+            bottom: 5,
           }}
         >
           <XAxis type="number" />
-          <YAxis dataKey="name" type="category" scale="band" />
-          <Tooltip />
-
-          <Bar dataKey="counter" barSize={30} fill="#FF8811" />
-        </ComposedChart>
+          <YAxis dataKey="name" type="category" />
+          <Bar dataKey="counter" fill="#A020F0" barSize={35} />
+        </BarChart>
       </ResponsiveContainer>
     </div>
   );

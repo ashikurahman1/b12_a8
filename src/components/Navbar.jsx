@@ -45,7 +45,7 @@ const Navbar = () => {
             <Link to="/" className="flex items-center">
               <img src={Logo} alt="HERO IO" className="w-8 lg:w-10" />
               <span
-                className="text-[1rem] font-bold ml-3 text-transparent bg-clip-text"
+                className="text-[1rem] lg:text-2xl font-bold ml-3 text-transparent bg-clip-text"
                 style={{
                   background:
                     'linear-gradient(145deg,rgba(99, 46, 227, 1) 0%, rgba(159, 98, 242, 1) 100%)',
@@ -75,7 +75,7 @@ const Navbar = () => {
           <div>
             <a href="https://github.com/ashikurahman1" target="_blank">
               <button
-                className="text-white font-semibold px-3 py-2 lg:px-4 lg:py-3 rounded-md flex items-center gap-2 cursor-pointer"
+                className="text-white font-semibold px-2 py-1 lg:px-4 lg:py-3 rounded-md flex items-center gap-2 cursor-pointer"
                 style={{
                   background:
                     'linear-gradient(145deg,rgba(99, 46, 227, 1) 0%, rgba(159, 98, 242, 1) 100%)',

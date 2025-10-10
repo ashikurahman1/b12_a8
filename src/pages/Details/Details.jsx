@@ -9,7 +9,6 @@ import { toast } from 'react-toastify';
 import Charts from '../../components/Charts';
 import Loader from '../../components/Loader';
 import NotFound from '../../components/NotFound';
-import SkeletonLoader from '../../components/SkeletonLoader';
 
 const Details = () => {
   const [installed, setInstalled] = useState(false);
@@ -38,7 +37,8 @@ const Details = () => {
     const alreadyInstalled = installedApps.some(app => app.id === item.id);
 
     if (alreadyInstalled) {
-      toast.info('App already installed');
+      toast.error('App already installed');
+
       setInstalled(true);
       return;
     }
@@ -98,11 +98,10 @@ const Details = () => {
             </div>
             {/* Buttons */}
             <button
-              disabled={installed}
               onClick={() => handleInstall(filteredDatas)}
               className={` px-8 py-3 font-semibold text-white rounded-md mt-6 cursor-pointer  transition ${
                 installed
-                  ? 'bg-red-400 cursor-not-allowed'
+                  ? ' bg-gray-500 '
                   : 'bg-emerald-500 hover:bg-emerald-700'
               }`}
             >

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import DownloadIcon from '../../assets/icon-downloads.png';
 import RatingIcon from '../../assets/icon-ratings.png';
-import { toast } from 'react-toastify';
+
+import Swal from 'sweetalert2';
 const Installation = () => {
   const [installedApps, setInstalledApps] = useState([]);
   const [sortOrder, setSortOrder] = useState('none');
@@ -12,10 +13,26 @@ const Installation = () => {
   }, []);
 
   const handleRemove = ItemId => {
-    const removeItem = installedApps.filter(item => item.id !== ItemId);
-    setInstalledApps(removeItem);
-    localStorage.setItem('installedApp', JSON.stringify(removeItem));
-    toast.error('App Uninstalled ');
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#A020F0',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then(result => {
+      if (result.isConfirmed) {
+        const removeItem = installedApps.filter(item => item.id !== ItemId);
+        setInstalledApps(removeItem);
+        localStorage.setItem('installedApp', JSON.stringify(removeItem));
+        Swal.fire({
+          title: 'Deleted!',
+          text: 'Your file has been deleted.',
+          icon: 'success',
+        });
+      }
+    });
   };
 
   const sortBySize = (() => {
@@ -48,7 +65,7 @@ const Installation = () => {
             value={sortOrder}
             onChange={e => setSortOrder(e.target.value)}
           >
-            <option value="none">Sort by size</option>
+            <option value="none">Sort by Downloads</option>
             <option value="high-low">High-Low</option>
             <option value="low-high">Low-High</option>
           </select>
@@ -85,7 +102,7 @@ const Installation = () => {
                         alt="Ratings Icon"
                         className="w-4 h-4"
                       />
-                      <span>{item.downloads.toString().slice(0, 2)}M</span>
+                      <span>{item.ratingAvg}</span>
                     </div>
 
                     <p className="slate-500">{item.size} MB</p>

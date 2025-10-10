@@ -40,7 +40,10 @@ const CompanySummary = () => {
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Card */}
           {companyStats.map(stats => (
-            <div key={stats.id} className="flex flex-col items-center py-3">
+            <div
+              key={stats.id}
+              className="companyCard flex flex-col items-center py-10 rounded-2xl shadow-2xl hover:-translate-y-1.5"
+            >
               <p className="text-lg">{stats.name}</p>
               <h2 className="text-[64px] font-extrabold">{stats.counter} </h2>
               <p>{stats.subtitle} </p>

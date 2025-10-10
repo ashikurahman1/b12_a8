@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../../components/Card';
 import { useDatas } from '../../Hooks/useDatas';
-import { RiSearchLine } from 'react-icons/ri';
+import NotFoundImg from '../../assets/App-Error.png';
 import Loader from '../../components/Loader';
 import SkeletonLoader from '../../components/SkeletonLoader';
 
@@ -72,7 +72,16 @@ const Apps = () => {
             {filterdItems.length > 0 ? (
               filterdItems.map(item => <Card item={item} key={item.id} />)
             ) : (
-              <p className="text-3xl font-bold ">No App Found</p>
+              // <p className="text-3xl font-bold ">No App Found</p>
+              <div className="flex flex-col col-span-full items-center my-10 space-y-5">
+                <img src={NotFoundImg} alt="Error Image" className="max-w-md" />
+                <h2 className="text-5xl font-semibold text-slate-900">
+                  Oops!! Apps not found!
+                </h2>
+                <p className="text-[20px] text-slate-500">
+                  The page you are looking for is not available.
+                </p>
+              </div>
             )}
           </div>
         )}

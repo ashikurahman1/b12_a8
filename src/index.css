@@ -12,3 +12,13 @@
   font-weight: 600;
   border-bottom: 2px solid #9358ef;
 }
+
+.companyCard:first-child {
+  background: linear-gradient(to bottom left, #0f172a, #1e1a78, #0f172a);
+}
+.companyCard:nth-child(2) {
+  background: conic-gradient(at top left, #4338ca, #6366f1, #a5b4fc);
+}
+.companyCard:last-child {
+  background: linear-gradient(to right, #2dd4bf, #1f2937);
+}

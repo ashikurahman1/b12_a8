@@ -1,8 +1,4 @@
 {
-  "rewrites": {
-    "source": "/(.*)",
-    "destination": "/"
-  },
   "name": "b12_a8",
   "private": true,
   "version": "0.0.0",
@@ -24,6 +20,7 @@
     "react-spinners": "^0.17.0",
     "react-toastify": "^11.0.5",
     "recharts": "^3.2.1",
+    "sweetalert2": "^11.25.1",
     "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
